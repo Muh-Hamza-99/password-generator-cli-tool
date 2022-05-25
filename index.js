@@ -14,13 +14,15 @@ commander
     .option("-s, --save", "Save password to password.txt")
     .option("-nn, --no-numbers", "Remove numbers")
     .option("-ns, --no-symbols", "Remove symbols")
+    .option("-fw, --for-what <string>", "What will the password be used for", "")
     .parse();
 
-const { length, save, numbers, symbols } = commander.opts();
+const { length, save, numbers, symbols, forWhat } = commander.opts();
 
 const generatedPassword = createPassword(length, numbers, symbols);
 
-if (save) savePassword(generatedPassword);
+if (save && forWhat) savePassword(generatedPassword, forWhat)
+else console.log(chalk.red("To save a password, you must mention what it will be used for!"));
 
 clipboardy.writeSync(generatedPassword);
 
