@@ -1,4 +1,4 @@
-# password-generator-cli-tool
+# 🔐 password-generator-cli-tool
 
 ## 📃 Description:
 A CLI tool that creates and manages passwords. 
